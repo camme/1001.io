@@ -1,0 +1,65 @@
+
+    <div class="container init-hide">
+
+        <nav class="slide-left init-hide">
+
+            <a href="/" title="home" class="logo">
+                <svg width="187px" height="70px" viewBox="0 0 288 108" enable-background="new 0 0 288 108" xml:space="preserve">
+                    <rect fill="#aaa" width="36" height="108"/>
+                    <path fill="#ccc" d="M36,0v108h108V0H36z M108,72H72V36h36V72z"/>
+                    <path fill="#aaa" d="M144,0v108h108V0H144z M216,72h-36V36h36V72z"/>
+                    <rect x="252" fill="#ccc" width="36" height="108"/>
+                </svg>
+            </a>
+ 
+            <ul>
+               {{~ it.menu :item }}
+                <li {{?item.children}}class="has-children"{{?}}>
+                    <a href="{{=item.url}}">{{=item.title}}</a>
+                    {{?item.children}}
+                    {{?item.children.length}}
+                        <ul>
+                            {{~ item.children :child:i }}
+                                <li>
+                                    <a href="{{=child.url}}">{{=child.title}}</a>
+                                </li>
+                            {{~}}
+                        </ul>
+                    {{?}}
+                    {{?}}
+                 </li>
+                 {{~}}
+             </ul>
+        </nav>
+
+        {{=it.body}}
+
+        <footer class="other-info">
+            <div class="about">
+                <div class="about-title">About</div>
+                <div class="about-text">
+                    <p>This is a small playground for my javascript experiences.</p>
+                    <p>
+                    I’m a 38 year old tech enthusiast who works as a tech visionary at 24HR Communications Malmö,
+                    one of the best web agencies in Malmö. </p>
+                    <p>
+                    I'm an web architect and I develop using many web technologies, but I love and enjoy writing javascript the most.
+                    Since I began to use it around 13 years ago, I’ve continuously been surprised of its capabilities.
+                    </p>
+                    <p>So, this site revolves mostly about my thoughts and projects with js.</p>
+                </div>
+                <div class="social">
+                    <a href="https://github.com/camme" class="icon-github"></a>
+                    <a href="mailto:camilo.tapia@gmail.com" class="icon-mail"></a>
+                    <a href="http://twitter.com/camilotapia" class="icon-twitter"></a>
+                    <a href="https://plus.google.com/116088809099838308089" class="icon-gplus"></a>
+                    <a href="http://se.linkedin.com/in/camilotapia" class="icon-linkedin"></a>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+
+<div class="main-list">
+
+    <section class="blog-list">
+        <h1>Latest blogs:</h1>
+
+        {{ it.posts = it.posts.slice(0,2); }}
+        {{~it.posts: post}}
+        <div class="article-holder post">
+            <h2><a href="{{= post.permalink}}">{{= post.post_title}}</a></h2>
+            <div class="date">{{= post.date.substring(0, 10)}}</div>
+            <div class="intro"> {{=this.markdown(post.excerpt)}} </div>
+        </div>
+        {{~}}
+
+    </section>
+
+    <section class="project-list">
+        <h1>Some of my projects:</h1>
+
+        {{ it.projects = it.projects.slice(0,6); }}
+        {{~it.projects: project}}
+        <div class="article-holder project">
+            <h2><a href="{{= project.permalink}}">{{= project.post_title}}</a></h2>
+            <div class="intro"> {{=this.markdown(project.excerpt)}} </div>
+        </div>
+        {{~}}
+
+    </section>
+
+
+</div>
+
+<script data-main="/scripts/bootstrap-main" src="/scripts/lib/require.js"></script>
+

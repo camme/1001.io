@@ -1,0 +1,19 @@
+
+<div class="main-list">
+
+    <section class="blog-list">
+
+        {{~it.posts: post}}
+        <div class="article-holder post">
+            <h2><a href="{{= post.permalink}}">{{= post.post_title}}</a></h2>
+            <div class="date">{{= post.date.substring(0, 10)}}</div>
+            <div class="intro"> {{=this.markdown(post.excerpt)}} </div>
+        </div>
+        {{~}}
+
+    </section>
+
+</div>
+
+<script data-main="/scripts/bootstrap-main" src="/scripts/lib/require.js"></script>
+

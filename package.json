@@ -1,0 +1,27 @@
+{
+  "name": "1001.io",
+  "version": "0.0.1",
+  "description": "1001.io",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/camme/1001.io"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/camme/1001.io/issues"
+  },
+  "dependencies": {
+    "grunt": "~0.4.1",
+    "grunt-requirejs": "~0.4.0",
+    "requirejs": "~2.1.9",
+    "grunt-exec": "~0.4.0",
+    "grunt-contrib-stylus": "~0.9.0",
+    "phantom": "~0.5.4",
+    "simplecrawler": "~0.3.6"
+  }
+}
