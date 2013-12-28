@@ -7,16 +7,22 @@
         {{ it.posts = it.posts.slice(0,2); }}
         {{~it.posts: post}}
         <div class="article-holder post">
-            <h2><a href="{{= post.permalink}}">{{= post.post_title}}</a></h2>
-            <div class="date">{{= post.date.substring(0, 10)}}</div>
-            <div class="intro"> {{=this.markdown(post.excerpt)}} </div>
+            <div class="container-image" {{=this.renderFirstImageAsBackground(post.images)}}><div class="aspect-ration"></div></div>
+            <svg class="rect" x="0px" y="0px" width="80px" height="80px" viewBox="0 0 80 80" enable-background="new 0 0 80 80" xml:space="preserve">
+                <rect x="0" y="0" fill="#FFFFFF" width="80" height="80"/>
+            </svg>
+            <div class="container-content">
+               <h2><a href="{{= post.permalink}}">{{= post.post_title}}</a></h2>
+                <div class="date">{{= post.date.substring(0, 10)}}</div>
+                <div class="intro"> {{=this.markdown(post.excerpt)}} </div>
+            </div>
         </div>
         {{~}}
 
     </section>
 
     <section class="project-list">
-        <h1>Some of my projects:</h1>
+        <h1>Some open source projects:</h1>
 
         {{ it.projects = it.projects.slice(0,6); }}
         {{~it.projects: project}}

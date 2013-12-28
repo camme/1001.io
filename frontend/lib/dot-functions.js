@@ -27,10 +27,19 @@ module.exports = {
     renderFirstImageAsBackground: function(images) {
         var html = "";
         if (images && images.length > 0) {
-            html = 'style="background: url(' + images[0].image + ') no-repeat center center"';
+            html = 'style="background-image: url(' + images[0].image + ');"';
         }
         return html;
     },
+
+    renderFirstImage: function(images) {
+        var html = "";
+        if (images && images.length > 0) {
+            html = '<img src="' + images[0].image + '" alt="" />';
+        }
+        return html;
+    },
+
 
     image: function(url, alt, style){
 

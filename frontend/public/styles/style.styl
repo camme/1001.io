@@ -346,6 +346,10 @@ nav
                 left 160px
             .date
                 top 0*/
+
+.aspect-ration
+    margin-bottom 100%
+    
 .main-list
     flex-wrap wrap
     display flex
@@ -375,8 +379,39 @@ nav
         //padding-right 1em
 
     .article-holder
-        border-radius 10px
         margin-bottom 5%
+        position relative
+        overflow hidden
+        height 287px
+        background-color white
+        box-shadow 8px 8px 0 darken(backgroundColor, 5%)
+        float left
+        .rect
+            transform rotate(45deg)
+            position absolute
+            left 30%
+            margin-left -30px
+            bottom 0
+            top 16px
+            z-index 5
+        .rect2
+            bottom -40px
+            top auto
+        .container-image
+            float left
+            width 30%
+            background-size cover
+            position relative
+            position 1
+            background-repeat no-repeat
+        .container-content
+            width 70%
+            z-index 10
+            position relative
+            box-sizing border-box
+            padding 1.5em
+            float left
+
         article
             box-shadow 0px 5px 0px darken(backgroundColor, 9%)
             border-bottom solid 5px darken(backgroundColor, 12%)

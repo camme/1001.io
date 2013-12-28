@@ -17,3 +17,6 @@ node_modules
 config.js
 wp-config.php
 wordpress/config
+wordpress/version.txt
+version.txt
+frontend/version.txt
