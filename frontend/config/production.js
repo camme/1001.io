@@ -6,8 +6,8 @@ exports.server = {
 };
 
 exports.wp = {
-    url: "http://new.24hr.se:81",
-    siteUrl: "http://new.24hr.se",
+    url: "http://www.1001.io:81",
+    siteUrl: "http://www.1001.io",
     root: path.join(__dirname, "../wordpress/")
 };
 
@@ -25,7 +25,7 @@ exports.version = function() {
 exports.views = path.join(__dirname, "./views");
 
 
-exports.publicUrl = "http://new.24hr.se";
+exports.publicUrl = "http://www.1001.io";
 
 
 exports.environment = "production";

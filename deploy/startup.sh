@@ -1,6 +1,6 @@
 set e+
-forever stop index.js
+forever stop frontend/index.js
 set e-
 git pull
 npm install
-forever start index.js
+forever start frontend/index.js

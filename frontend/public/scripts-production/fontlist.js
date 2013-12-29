@@ -1,1 +1,1 @@
-define(["font!google,families:[Raleway:400]"],function(){return{}});
+define(["font!google,families:[Raleway:400]","font!custom,families:[socia],urls:[/media/fonts/social.css]"],function(){return{}});
