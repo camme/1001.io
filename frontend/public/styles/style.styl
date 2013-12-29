@@ -4,7 +4,7 @@
 backgroundColor = #fefefe
 logoPartWidth = 43px
 smallLogoPartWidth = 15px
-actionColor = #f1008e
+actionColor = #5b97b6
 
 topColor = #aaa
 
@@ -36,8 +36,8 @@ a
 nav
     width 100%
     position relative
-    max-width 1200px
     margin 0 auto
+    background-color #eee
     box-sizing border-box
 
     .about-link
@@ -59,10 +59,6 @@ nav
         li
             padding 0 3em
             line-height 120px
-            //border-right 1px solid lighten(topColor, 20%)
-
-            //li:first-child
-            //border-left 1px solid lighten(topColor, 20%)
 
         li.active a
             font-weight 700
@@ -70,6 +66,8 @@ nav
             display block
             font-size 1.5em
             float left
+            font-weight 700
+            color actionColor
             text-transform lowercase
 
         .count
@@ -92,6 +90,7 @@ nav
         float left
         position absolute
         top 24px
+        left 24px
 
 
 .separator
@@ -103,13 +102,6 @@ nav
     width 100%
 
 
-.blog-list
-    box-shadow 0px 8px 0px #fff
-    //darken(backgroundColor, 5%)
-    border-bottom solid 8px darken(backgroundColor, 15%)
-    padding-bottom 5%
-    margin-bottom 5%
-
  
 
 .other-info
@@ -118,13 +110,12 @@ nav
     border-top 50px solid darken(backgroundColor, 20%)
     border-bottom 50px solid darken(backgroundColor, 5%)
     background-color darken(backgroundColor, 2%)
+    float left
     font-size 1.5em
     font-family 'Raleway', sans-serif
     font-weight 100
     padding 4%
-    max-width 1200px
-    margin 3em auto
-    margin-top 1em
+    position relative
     box-sizing border-box
 
     .talk
@@ -135,7 +126,19 @@ nav
         .interesting
             font-weight 700
 
+    .about-title
+        font-weight 700
+        width 100%
+        text-align center
+        font-size 2em
+        margin 0px 0 .5em
+
+
     .about
+        float left
+        width 70%
+        margin-left 5%
+        position relative
 
         h1
             font-size 1em
@@ -143,19 +146,31 @@ nav
         .name 
             text-align right
 
-        .about-title
-            font-weight 700
-            margin 0px 0 10px
-
         .about-text
+            float left
             font-weight 200
             font-size .8em
             color #999
             //margin-bottom 5%
 
+    .version
+        bottom 1em
+        font-size .8em
+        right 1em
+        color #ccc
+        position absolute
+
+    .about-image
+        width 25%
+        float left
+        background-image url('/media/camilo.jpg')
+        background-repeat no-repeat
+        background-size cover
+        border-radius 2000px
+
     .social
-        margin-top 5%
-        margin-bottom 5%
+        float left
+        margin-top 2%
         a
             padding-left 1px
             transition all ease-out .3s
@@ -195,7 +210,7 @@ nav
     border-top 50px solid darken(backgroundColor, 20%)
     border-bottom 50px solid darken(backgroundColor, 5%)
     background-color darken(backgroundColor, 2%)
-    max-width 1200px
+    //max-width 1200px
     margin 0 auto
     padding 5%
     box-sizing border-box
@@ -349,7 +364,7 @@ nav
 
 .aspect-ration
     margin-bottom 100%
-    
+
 .main-list
     flex-wrap wrap
     display flex
@@ -358,58 +373,58 @@ nav
     h2
         margin-top 0
         float left
-        width 80%
         padding-bottom 0
         margin-bottom .4em
     .date
-        float right
-        background-color rgba(255, 255, 255, .8)
-        font-size .9em
-        margin-top 3px
-        padding .2em .3em
+        position absolute
+        bottom -31px
+        right 15px
+        font-size .7em
     .intro
         clear left
-    p
-        //display inline
-        background-color rgba(255, 255, 255, .4)
-        //padding 0.3em .5em
-        color #333
-        //line-height 1.2em
-        //&::first-line
-        //padding-right 1em
-
     .article-holder
         margin-bottom 5%
         position relative
-        overflow hidden
-        height 287px
         background-color white
-        box-shadow 8px 8px 0 darken(backgroundColor, 5%)
+        box-shadow 8px 8px 0 darken(backgroundColor, 7%)
         float left
-        .rect
-            transform rotate(45deg)
+        circleWidth = 110px
+        .tag-circle-border
             position absolute
-            left 30%
-            margin-left -30px
-            bottom 0
-            top 16px
+            left 50%
+            margin-left -(circleWidth / 2 + 8px)
+            margin-top -(circleWidth / 2 + 8px)
+            border 8px solid rgba(200, 200, 200, .3)
+            border-radius circleWidth
+            top 100%
+            width circleWidth
+            height circleWidth
             z-index 5
-        .rect2
-            bottom -40px
-            top auto
+        .tag-circle
+            background-color white
+            border-radius circleWidth
+            width circleWidth
+            height circleWidth
+            text-align center
+            font-size .58em
+            display flex
+            flex-direction column
+            justify-content center
         .container-image
             float left
-            width 30%
+            width 100%
             background-size cover
             position relative
             position 1
             background-repeat no-repeat
+            .aspect-ration
+                margin-bottom 50%
         .container-content
-            width 70%
+            width 100%
             z-index 10
             position relative
             box-sizing border-box
-            padding 1.5em
+            padding 3.0em 1.5em 1.5em
             float left
 
         article
@@ -426,15 +441,46 @@ nav
         article .excerpt
             font-size 1.0em
 
-    .project-list
-        .project
-            float left
+    .blog-list
+        display flex
+        flex-flow row wrap
+        justify-content space-between
+        .article-holder
             width 47%
+            .intro
+                font-size .85em
+
+
+
+    .more
+        text-align center
+        width 100%
+        padding .3em .4em
+        transition background-color 1s ease-out, color .5s ease-out
+        &:hover
+            background-color rgba(100, 100, 100, .2)
+            color actionColor
+            text-decoration none
+
+    .project-list
+        box-shadow 0px -8px 0px #fff
+        border-top solid 8px darken(backgroundColor, 15%)
+        padding-top 5%
+        margin-top 5%
+        display flex
+        flex-flow row wrap
+        justify-content space-between
+        .article-holder
+            width 30%
+        h1
+            text-align center
+            width 100%
+            text-transform lowercase
+        .project
             padding 1.5em
             box-sizing border-box
-            &:nth-child(2n)
-                margin-right 6%
-                clear left
+            .intro
+                font-size .85em
 
 .single
     font-size 1.2em

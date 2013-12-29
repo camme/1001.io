@@ -34,13 +34,15 @@
 
         {{=it.body}}
 
+        <a name="about"></a>
         <footer class="other-info">
+            <div class="about-title">About</div>
+            <div class="about-image"><div class="aspect-ration"></div></div>
             <div class="about">
-                <div class="about-title">About</div>
                 <div class="about-text">
-                    <p>This is a small playground for my javascript experiences.</p>
+                    <p>This is a small playground for my javascript experiences, open source projects and other thoughts.</p>
                     <p>
-                    I’m a 38 year old tech enthusiast who works as a tech visionary at 24HR Communications Malmö,
+                    I’m a {{=this.age()}} year old tech enthusiast who works as a tech visionary at 24HR Communications Malmö,
                     one of the best web agencies in Malmö. </p>
                     <p>
                     I'm an web architect and I develop using many web technologies, but I love and enjoy writing javascript the most.
@@ -56,6 +58,7 @@
                     <a href="http://se.linkedin.com/in/camilotapia" class="icon-linkedin"></a>
                 </div>
             </div>
+            <div class="version">version: {{=this.version()}}</div>
         </footer>
 
     </div>

@@ -14,7 +14,9 @@
             $post_item->permalink = get_permalink($post->ID);
             $post_item->date = $post->post_date;
             $post_item->images = get_field('images');
-            $post_item->tags = wp_get_post_tags();
+            $post_item->tags = wp_get_post_tags($post->ID);
+            $category = get_the_category(); 
+            $post_item->category = $category[0]->cat_name;
             array_push($data->posts, $post_item);
         }
 

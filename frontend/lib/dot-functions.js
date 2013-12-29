@@ -1,6 +1,7 @@
 var fs = require('fs');
 var path = require('path');
 var marked = require('marked');
+var moment = require('moment');
 var config = require("../config-manager");
 var hljs = require("highlight.js");
 
@@ -63,6 +64,17 @@ module.exports = {
         return img;
 
     },
+
+    age: function() {
+        var now = moment();
+        var then = moment([1974, 3, 11]);
+        return now.diff(then, 'years') 
+    },
+
+    version: function() {
+        return fs.readFileSync(path.join(__dirname, "..", "version.txt"));
+    },
+
 
     dump: function(data){
         return JSON.stringify(data, null, "");

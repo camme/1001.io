@@ -12,6 +12,7 @@
     "frnt": "0.0.3",
     "express-dot": "~0.1.0",
     "marked": "~0.3.0",
-    "highlight.js": "~7.5.0"
+    "highlight.js": "~7.5.0",
+    "moment": "~2.5.0"
   }
 }
