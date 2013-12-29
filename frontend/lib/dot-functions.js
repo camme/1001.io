@@ -41,7 +41,6 @@ module.exports = {
         return html;
     },
 
-
     image: function(url, alt, style){
 
         if(isSvgImage(url)){
@@ -81,3 +80,14 @@ module.exports = {
     }
 
 };
+
+function isSvgImage(url){
+
+    if(url.indexOf(".svg") == (url.length - 4)){
+        return true;
+    }
+
+    return false
+}
+
+

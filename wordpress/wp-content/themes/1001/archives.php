@@ -8,7 +8,7 @@
     $data->template = 'blog';
     $data->posts = array();
 
-    $blog_query = new WP_Query($args = array( 'post_type'=> 'post','order'    => 'ASC'));
+    $blog_query = new WP_Query($args = array( 'post_type'=> 'post','order'    => 'DESC'));
 
     if($blog_query->have_posts() ) {
         while ( $blog_query->have_posts() ) {
@@ -19,7 +19,7 @@
             $post_item->permalink = get_permalink($post->ID);
             $post_item->date = $post->post_date;
             $post_item->images = get_field('images');
-            $post_item->tags = wp_get_post_tags();
+            $post_item->tags = wp_get_post_tags($post->ID);
             array_push($data->posts, $post_item);
         }
 

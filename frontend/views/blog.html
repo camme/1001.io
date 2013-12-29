@@ -1,13 +1,25 @@
 
 <div class="main-list">
 
-    <section class="blog-list">
+    <section class="blog-list archive">
 
         {{~it.posts: post}}
         <div class="article-holder post">
-            <h2><a href="{{= post.permalink}}">{{= post.post_title}}</a></h2>
-            <div class="date">{{= post.date.substring(0, 10)}}</div>
-            <div class="intro"> {{=this.markdown(post.excerpt)}} </div>
+            <div class="container-image" {{=this.renderFirstImageAsBackground(post.images)}}>
+                <div class="aspect-ration"></div>
+                <div class="tag-circle-border">
+                    <div class="tag-circle">
+                        {{~post.tags: tag}}
+                        <span class="tag">{{=tag.name}}</span>
+                        {{~}}
+                    </div>
+                </div>
+                <div class="date">{{= post.date.substring(0, 10)}}</div>
+           </div>
+           <div class="container-content">
+               <h2><a href="{{= post.permalink}}">{{= post.post_title}}</a></h2>
+                <div class="intro"> {{=this.markdown(post.excerpt)}} </div>
+            </div>
         </div>
         {{~}}
 

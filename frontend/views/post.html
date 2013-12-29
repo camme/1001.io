@@ -2,7 +2,12 @@
         <div class="single">
 
             <article class="article-holder">
-                <h1>{{= it.post.post_title}}</h1>
+               <h1>{{= it.post.post_title}}</h1>
+                <div class="images">
+                    {{~it.post.images: image}}
+                        {{=this.image(image.image)}}
+                    {{~}}
+                </div>
                 <div>{{=this.markdown(it.post.content)}}</div>
             </article>
 

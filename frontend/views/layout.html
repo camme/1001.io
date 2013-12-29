@@ -1,36 +1,37 @@
+    <nav class="slide-left init-hide">
+
+        <a href="/" title="home" class="logo">
+            <svg width="187px" height="70px" viewBox="0 0 288 108" enable-background="new 0 0 288 108" xml:space="preserve">
+                <rect fill="#aaa" width="36" height="108"/>
+                <path fill="#ccc" d="M36,0v108h108V0H36z M108,72H72V36h36V72z"/>
+                <path fill="#aaa" d="M144,0v108h108V0H144z M216,72h-36V36h36V72z"/>
+                <rect x="252" fill="#ccc" width="36" height="108"/>
+            </svg>
+            <div class="tagline">Javascript, nodejs and everything in between.</div>
+        </a>
+
+        <ul>
+           {{~ it.menu :item }}
+            <li {{?item.children}}class="has-children"{{?}}>
+                <a href="{{=item.url}}">{{=item.title}}</a>
+                {{?item.children}}
+                {{?item.children.length}}
+                    <ul>
+                        {{~ item.children :child:i }}
+                            <li>
+                                <a href="{{=child.url}}">{{=child.title}}</a>
+                            </li>
+                        {{~}}
+                    </ul>
+                {{?}}
+                {{?}}
+             </li>
+             {{~}}
+         </ul>
+    </nav>
+
 
     <div class="container init-hide">
-
-        <nav class="slide-left init-hide">
-
-            <a href="/" title="home" class="logo">
-                <svg width="187px" height="70px" viewBox="0 0 288 108" enable-background="new 0 0 288 108" xml:space="preserve">
-                    <rect fill="#aaa" width="36" height="108"/>
-                    <path fill="#ccc" d="M36,0v108h108V0H36z M108,72H72V36h36V72z"/>
-                    <path fill="#aaa" d="M144,0v108h108V0H144z M216,72h-36V36h36V72z"/>
-                    <rect x="252" fill="#ccc" width="36" height="108"/>
-                </svg>
-            </a>
- 
-            <ul>
-               {{~ it.menu :item }}
-                <li {{?item.children}}class="has-children"{{?}}>
-                    <a href="{{=item.url}}">{{=item.title}}</a>
-                    {{?item.children}}
-                    {{?item.children.length}}
-                        <ul>
-                            {{~ item.children :child:i }}
-                                <li>
-                                    <a href="{{=child.url}}">{{=child.title}}</a>
-                                </li>
-                            {{~}}
-                        </ul>
-                    {{?}}
-                    {{?}}
-                 </li>
-                 {{~}}
-             </ul>
-        </nav>
 
         {{=it.body}}
 

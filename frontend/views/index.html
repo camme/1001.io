@@ -30,12 +30,15 @@
 
     <section class="project-list">
 
-        <h1>Some open-source projects</h1>
+        <h1>Some of my open-source projects</h1>
 
         {{ it.projects = it.projects.slice(0,6); }}
         {{~it.projects: project}}
         <div class="article-holder project">
-            <h2><a href="{{= project.permalink}}">{{= project.post_title}}</a></h2>
+            <div class="container-image" {{=this.renderFirstImageAsBackground(project.images)}}>
+                <div class="aspect-ration"></div>
+            </div>
+             <h2><a href="{{= project.permalink}}">{{= project.post_title}}</a></h2>
             <div class="intro"> {{=this.markdown(project.excerpt)}} </div>
         </div>
         {{~}}

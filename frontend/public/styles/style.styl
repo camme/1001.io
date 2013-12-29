@@ -32,10 +32,14 @@ a
 
 .container
     -webkit-animation appear .5s
+    padding-top 120px
 
 nav
-    width 100%
-    position relative
+    position fixed
+    z-index 100
+    box-shadow: 0 0px 40px rgba(0,0,0,.4);
+    background-color rgba(250, 250, 250, .8)
+    width 100%:
     margin 0 auto
     background-color #eee
     box-sizing border-box
@@ -91,6 +95,14 @@ nav
         position absolute
         top 24px
         left 24px
+        svg
+            float left
+        .tagline
+            float left
+            padding 1em
+            color #bbb
+            width 200px
+
 
 
 .separator
@@ -163,9 +175,13 @@ nav
     .about-image
         width 25%
         float left
-        background-image url('/media/camilo.jpg')
+        background-image url('/media/images/camilo.jpg')
         background-repeat no-repeat
         background-size cover
+        background-position -8px -8px
+        border 8px solid rgba(200, 200, 200, .3)
+        box-sizing border-box
+        padding 8px
         border-radius 2000px
 
     .social
@@ -382,6 +398,7 @@ nav
         font-size .7em
     .intro
         clear left
+        //border-bottom 2px dashed actionColor
     .article-holder
         margin-bottom 5%
         position relative
@@ -416,6 +433,7 @@ nav
             background-size cover
             position relative
             position 1
+            background-color #eee
             background-repeat no-repeat
             .aspect-ration
                 margin-bottom 50%
@@ -451,6 +469,14 @@ nav
                 font-size .85em
 
 
+        &.archive .article-holder
+            width 30%
+            font-size .9em
+            .date
+                font-size .6em
+
+
+
 
     .more
         text-align center
@@ -463,8 +489,8 @@ nav
             text-decoration none
 
     .project-list
-        box-shadow 0px -8px 0px #fff
-        border-top solid 8px darken(backgroundColor, 15%)
+        box-shadow 0px -8px 0px #ddd
+        border-top solid 8px darken(backgroundColor, 5%)
         padding-top 5%
         margin-top 5%
         display flex
@@ -477,14 +503,35 @@ nav
             width 100%
             text-transform lowercase
         .project
-            padding 1.5em
+            padding 0
             box-sizing border-box
+            h2
+                padding 7% 10% 0
             .intro
                 font-size .85em
+                padding 0 10% 10%
+            projectListImageWidth = 100%
+            .container-image
+                width projectListImageWidth
+                left 0
+                top 0
+                box-sizing border-box
+                background-size cover
+                background-position center
+                .aspect-ration
+                    margin-bottom 50%
 
 .single
     font-size 1.2em
     article
+        max-width 900px
+        margin 0 auto
+        img
+            width 100%
+            border 8px solid  rgba(200, 200, 200, .3)
+            margin 1em 0
+            box-sizing border-box
+            
         .intro
             font-size 1.5em
             line-height 1.3em
