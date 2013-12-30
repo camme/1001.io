@@ -74,9 +74,12 @@ module.exports = {
         return fs.readFileSync(path.join(__dirname, "..", "version.txt"));
     },
 
-
     dump: function(data){
         return JSON.stringify(data, null, "");
+    },
+
+    scriptsFolder: function() {
+        return config.environtment == "production" ? "/scripts-production" : "/scripts";
     }
 
 };
