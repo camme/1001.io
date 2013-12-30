@@ -79,7 +79,7 @@ module.exports = {
     },
 
     scriptsFolder: function() {
-        return config.environtment == "production" ? "/scripts-production" : "/scripts";
+        return config.environment == "production" ? "/scripts-production" : "/scripts";
     }
 
 };
