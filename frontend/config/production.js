@@ -29,6 +29,7 @@ exports.publicUrl = "http://www.1001.io";
 
 
 exports.environment = "production";
+exports.analytics = "UA-21488834-5";
 
 exports.useHtmlCache = false;
 exports.useWpCache = false;
