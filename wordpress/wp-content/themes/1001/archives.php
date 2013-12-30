@@ -7,8 +7,9 @@
     $data = new stdclass();
     $data->template = 'blog';
     $data->posts = array();
+    $data->post_title = "Blog";
 
-    $blog_query = new WP_Query($args = array( 'post_type'=> 'post','order'    => 'DESC'));
+    $blog_quer = new WP_Query($args = array( 'post_type'=> 'post','order'    => 'DESC'));
 
     if($blog_query->have_posts() ) {
         while ( $blog_query->have_posts() ) {

@@ -5,7 +5,7 @@
 
         {{ it.posts = it.posts.slice(0,2); }}
         {{~it.posts: post}}
-        <div class="article-holder post">
+        <div class="article-holder post" data-url="{{=post.permalink}}">
             <div class="container-image" {{=this.renderFirstImageAsBackground(post.images)}}>
                 <div class="aspect-ration"></div>
                 <div class="tag-circle-border">
@@ -34,7 +34,7 @@
 
         {{ it.projects = it.projects.slice(0,6); }}
         {{~it.projects: project}}
-        <div class="article-holder project">
+        <div class="article-holder project" data-url="{{=project.permalink}}">
             <div class="container-image" {{=this.renderFirstImageAsBackground(project.images)}}>
                 <div class="aspect-ration"></div>
             </div>

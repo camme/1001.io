@@ -14,6 +14,7 @@
             $data->post->content = get_field('content');
             $data->post->images = get_field('images');
             $data->post->tags = wp_get_post_tags();
+            $data->post_title = $post->post_title;
             break;
         }
         

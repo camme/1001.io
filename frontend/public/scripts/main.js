@@ -16,6 +16,20 @@ define([
             autoShowElements: document.querySelectorAll("nav, .main-top")
         });
 
+        var links = document.querySelectorAll(".main-list .post, .main-list .project");
+        for(var i = 0, ii = links.length; i < ii; i++){
+            var link = links[i];
+            console.log(link);
+            link.addEventListener("click", function() {
+                var url = this.getAttribute("data-url");
+                location.href = url;
+            }, false);
+            link.addEventListener("touchstart", function() {
+                var url = this.getAttribute("data-url");
+                location.href = url;
+            }, false);
+        }
+
     });
 
 });

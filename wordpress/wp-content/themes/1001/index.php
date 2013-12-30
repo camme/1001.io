@@ -1,6 +1,7 @@
 <?php
 
     $data = new stdclass();
+    $data->post_title = "Start";
     $data->template = 'index';
     $data->posts = array();
 

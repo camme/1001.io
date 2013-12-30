@@ -1,3 +1,4 @@
+var Crawler = require("simplecrawler");
 var frnt = require('frnt');
 var fs = require("fs");
 var path = require("path");
@@ -14,7 +15,14 @@ var doT = require('express-dot');
 var dotFunctions = require('./dot-functions');
 doT.setGlobals(dotFunctions);
 
-function init(next) {
+function init(options, next) {
+
+    if (typeof options == "function") {
+        next = options;
+    }
+
+    options = options || {};
+
 
     // Define where the public files are
     app.use(express.static(path.join(__dirname, '../public')));
@@ -35,7 +43,27 @@ function init(next) {
     app.set('view engine', 'html' );
     app.engine('html', doT.__express );
 
-    server.listen(config.server.port);
+    server.listen(config.server.port, function() {
+
+        if (typeof next == "function") {
+            next();
+        }
+
+        if (options.crawl !== false) { //&& config.useHtmlCache && config.useWpCache) {
+
+            console.log("");
+            console.log("Crawling through site to cache responses");
+            console.log("----------------------------------------");
+            Crawler.crawl(config.publicUrl).on("fetchcomplete",function(queueItem){
+                console.log("Crawling> Completed caching resource:", queueItem.url);
+            }).on("complete", function() {
+                console.log("Crawling> Completed!");
+                console.log("");
+            });
+
+        }
+
+    });
 
 }
 

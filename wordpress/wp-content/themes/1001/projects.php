@@ -6,6 +6,7 @@
 
     $data = new stdclass();
     $data->template = 'blog';
+    $data->post_title = "Projects";
     $data->posts = array();
 
     $projects_query = new WP_Query($args = array( 'post_type'=> 'project','order' => 'DESC'));
