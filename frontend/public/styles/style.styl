@@ -2,10 +2,7 @@
 
 
 backgroundColor = #fefefe
-logoPartWidth = 43px
-smallLogoPartWidth = 15px
 actionColor = #5b97b6
-
 topColor = #aaa
 
 mainFont()
@@ -32,7 +29,7 @@ a
 
 .container
     -webkit-animation appear .5s
-    padding-top 120px
+    padding-top 1px
 
 nav
     position fixed
@@ -58,17 +55,18 @@ nav
         padding 0
         margin 0
         list-style none
-        justify-content center
+        justify-content flex-end
+        padding-right 10px
 
         li
-            padding 0 2em
-            line-height 120px
+            padding 0 .4em
+            line-height 80px
 
         li.active a
             font-weight 700
         a
             display block
-            font-size 1.5em
+            font-size 1em
             float left
             font-weight 700
             color actionColor
@@ -90,33 +88,31 @@ nav
             float left
 
     .logo
-        //width 4*logoPartWidth
         float left
         position absolute
-        top 24px
-        left 24px
+        top 6px
+        left 15px
         svg
+            width 100px
             float left
-        .tagline
-            float left
-            padding 1em
-            color #bbb
-            width 200px
+
+    .tagline
+        display none
+        /*
+        position absolute
+        bottom 18px
+        color #bbb
+        font-size .8em
+        width 100%
+        margin-right 24px
+        text-align center
+        box-sizing border-box
+        padding 0
+        */
 
 
-
-.separator
-    box-shadow 0px 5px 0px darken(backgroundColor, 4%)
-    border-bottom solid 5px darken(backgroundColor, 7%)
-    padding-top 15%
-    padding-bottom 15%
-    height 5px;
-    width 100%
-
-
- 
-
-.other-info
+footer
+    display none
     border-left 50px solid darken(backgroundColor, 10%)
     border-right 50px solid darken(backgroundColor, 15%)
     border-top 50px solid darken(backgroundColor, 20%)
@@ -124,19 +120,11 @@ nav
     background-color darken(backgroundColor, 2%)
     float left
     font-size 1.5em
-    font-family 'Raleway', sans-serif
+    mainFont()
     font-weight 100
     padding 4%
     position relative
     box-sizing border-box
-
-    .talk
-        font-size 1.4em
-        width 100%
-        box-sizing border-box
-
-        .interesting
-            font-weight 700
 
     .about-title
         font-weight 700
@@ -211,30 +199,27 @@ nav
                 background-color actionColor
                 color #fff
 
-.main-list .article-holder
-    cursor pointer
+pre code
+    font-size .8em
+    border-left 15px solid darken(backgroundColor, 15%)
+    border-right 15px solid darken(backgroundColor, 20%)
+    border-top 15px solid darken(backgroundColor, 35%)
+    border-bottom 15px solid darken(backgroundColor, 10%)
+    box-sizing border-box
+    padding 20px
 
 .main-list
 .single
-    flex 1
     margin 0
-    order 2
-    //margin-top 5.05%
-    //margin-bottom 5.05%
     border-left 50px solid darken(backgroundColor, 10%)
     border-right 50px solid darken(backgroundColor, 15%)
     border-top 50px solid darken(backgroundColor, 20%)
     border-bottom 50px solid darken(backgroundColor, 5%)
     background-color darken(backgroundColor, 2%)
-    //max-width 1200px
     margin 0 auto
     padding 5%
     box-sizing border-box
-    //display-box()
-    //box-orient horizontal
     font-size 1.5em
-    //column-count 2
-    //column-gap .5em
 
     h1
         line-height 1.2em
@@ -242,141 +227,6 @@ nav
         margin-top 0
         margin-bottom 0.3em
         clear left
-
-    article
-        //border-left 5px solid darken(backgroundColor, 20%)
-        //border-top 5px solid darken(backgroundColor, 20%)
-        //border-bottom 5px solid darken(backgroundColor, 20%)
-        //border-right 10px solid darken(backgroundColor, 8%)
-        //transform rotateY( 0deg )
-        box-sizing border-box
-        overflow hidden
-        margin-bottom 10%
-        width 100%
-        position relative
-        //height 500px
-        //transition all .2s ease-in-out
-        background-color darken(backgroundColor, 2%)
-        line-height 1.3em
-
-        pre code
-            font-size .8em
-            border-left 15px solid darken(backgroundColor, 15%)
-            border-right 15px solid darken(backgroundColor, 20%)
-            border-top 15px solid darken(backgroundColor, 35%)
-            border-bottom 15px solid darken(backgroundColor, 10%)
-            box-sizing border-box
-            padding 20px
-
-        a
-            color darken(actionColor, 20%)
-
-        img
-            width 641px
-            //height 400px
-            //position absolute
-
-        &:nth-child(2n + 1)
-            clear left
-
-        .intro
-            //background-color lighten(backgroundColor, 4%)
-            background-color darken(backgroundColor, 2%)
-            font-size .8em
-            color #666
-            padding 20px 30px 20px 40px
-            font-family 'Raleway', sans-serif
-            font-weight 200
-            margin-top -20px
-            margin-left -40px
-            position relative
-            //transition all .3s ease-in-out
-            z-index 99
-            float left
-            clear left
-            p
-                margin 0
-            p+p
-                margin-top 20px
-
-        img
-            width 100%
-
-        .date
-            font-family 'Raleway', sans-serif
-            margin-bottom 0
-            right 0
-            font-size .7em
-            color #999
-            font-weight 700
-            float right
-
-        h2
-            color #333
-            text-decoration none
-            z-index 100
-            font-family 'Raleway', sans-serif
-            font-weight 400
-            margin-bottom 0
-            margin-left -40px
-            position relative
-            background-color darken(backgroundColor, 2%)
-            padding 0px 30px 10px 40px
-            //transition all .4s ease-in-out
-            line-height 1.2em
-            float left
-            clear left
-            margin-top 0
-            a
-                text-decoration none
-                color #333
-
-
-
-        &.has-image h2
-            margin-top 300px
-            padding-top 20px
-
-
-        .tags
-            //transform-style preserve-3d
-            //transform rotateY( 5deg ) scale(.9) translateX(-60px)
-            box-sizing border-box
-            z-index 1
-            font-family 'Raleway', sans-serif
-            font-size .7em
-            font-weight 100
-            transition all .2s ease-out
-            float left
-            padding-bottom 7% 
-            padding-left 2px
-            color #999
-            width 70%
-            .tag:after
-                content: ","
-                padding-right 3px
-            .tag:last-child:after
-                content: ""
-            .tag-title
-                font-weight 700
-            a
-                color #999
-        .data
-            float right
-
-    .article-holder:hover
-        padding-left 0
-/*
-        article
-            border-width 30px
-            transform scale(.9)
-            transform rotateY( 5deg ) scale(.9) translateX(-60px)
-            h2
-                left 190px
-            .intro
-                left 160px
-            .date
-                top 0*/
 
 .aspect-ration
     margin-bottom 100%
@@ -551,39 +401,43 @@ nav
         ul
             clear left
 
-@media only screen and (max-width: 1000px) 
-    .other-info
-        .nav ul
-            .count
-                display none
-        .about
-            font-size .9em
-        .logo-top
-            .logo-text
-                display none
+@media only screen and (min-width: 900px) 
+    footer
+        display block
+    .container
+        padding-top 120px
+    nav
+        padding-bottom 0
+        ul
+            justify-content center
+            padding 0
+            padding-left 150px
+            li
+                padding 0 2em
+                line-height 120px
 
+            a
+                font-size 1.5em
 
-    .main-list
-        flex-wrap wrap
-        display flex
-        .article-holder
-            flex-basis 47%
-            padding-right 6%
-            &:nth-child(2n + 2)
-                padding-right 0%
+        .logo
+            top 24px
+            left 24px
+            svg 
+                width auto
 
-    .single .article-holder
-        .date
+         .tagline
+            display block
             float left
+            position absolute
+            top 24px
+            left 214px
+            padding 1em
             font-size 1em
-        .tags
-            padding-left 0
-            width 100%
+            color #bbb
+            width 200px
 
 
-
-
-@media only screen and (max-width: 900px) 
+@media only screen and (max-width: 1000px) 
     .container
         flex-direction column
     .main-list, .single
@@ -672,35 +526,7 @@ nav
                     a
                         font-size .8em
 
-        .logo-top
-            box-shadow 0px 10px 0px darken(backgroundColor, 4%)
-            border-bottom solid 10px darken(backgroundColor, 7%)
-            position fixed 
-            width 100%
-            box-sizing border-box
-            background-color darken(backgroundColor, 10%)
-            z-index 1000
-            border 0
-            padding  20px 5%
-            flex 1
-
-            .logo
-                width 100px
-                .logo-1, .logo-4
-                    height 3*smallLogoPartWidth
-                    border-left-width smallLogoPartWidth
-                .logo-2, .logo-3
-                    height 3*smallLogoPartWidth
-                    width 3*smallLogoPartWidth
-                    border-width smallLogoPartWidth
-            .logo-text
-                display none
-                width 65%
-                font-size 16px
-                padding-top 2px
-                padding-left 3%
-                clear none
-                        
+                       
 
 
 

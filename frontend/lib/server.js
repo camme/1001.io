@@ -33,7 +33,8 @@ function init(options, next) {
         proxyUrl: config.wp.url,
         firstPackage: "first1400",
         filter: function(content) {
-            return content.replace(/:81/g, "");
+            content = content.replace(/http(.*?):8181/g, "");
+            return content;
         }
     }));
 
@@ -54,12 +55,25 @@ function init(options, next) {
             console.log("");
             console.log("Crawling through site to cache responses");
             console.log("----------------------------------------");
-            Crawler.crawl(config.publicUrl).on("fetchcomplete",function(queueItem){
-                console.log("Crawling> Completed caching resource:", queueItem.url);
+
+            var crawler = new Crawler(config.publicUrl, "/", config.server.port);
+            console.log(config.publicUrl, "/", config.server.port);
+
+            crawler.on("fetchcomplete",function(queueItem){
+                console.log("Crawling> Completed caching resource:", queueItem);
             }).on("complete", function() {
                 console.log("Crawling> Completed!");
                 console.log("");
+            }).on("queueadd", function(item) {
+                console.log("Added", item);
+            }).on("fetcherror", function(item) {
+                console.log("Error", item);
+            }).on("fetchcomplete",function(queueItem, responseBuffer, response) {
+                console.log("I just received %s (%d bytes)",queueItem.url,responseBuffer.length);
+                console.log("It was a resource of type %s",response.headers['content-type']);
             });
+
+            crawler.start();
 
         }
 
