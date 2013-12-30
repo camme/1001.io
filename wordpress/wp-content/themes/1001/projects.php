@@ -8,7 +8,7 @@
     $data->template = 'blog';
     $data->posts = array();
 
-    $projects_query = new WP_Query($args = array( 'post_type'=> 'project','order'    => 'ASC'));
+    $projects_query = new WP_Query($args = array( 'post_type'=> 'project','order'    => 'DESC'));
 
     if($projects_query->have_posts() ) {
         while ( $projects_query->have_posts() ) {
