@@ -1,1 +1,0 @@
-define(["require","smartcss!../styles/normalize.css","smartcss!../styles/style.css"],function(s){return s("smartcss!../styles/normalize.css"),s("smartcss!../styles/style.css"),{}});

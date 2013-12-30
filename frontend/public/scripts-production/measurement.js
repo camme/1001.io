@@ -1,1 +1,0 @@
-define(["require"],function(){function e(){var e=new Date,o=e.getTime()-ozzo.i.getTime();ozzo.delta=o,ozzo.end=e,localStorage&&"true"==localStorage.log&&console.log("Load time: %s",o)}return{loaded:e}});
