@@ -1,7 +1,7 @@
 var fs = require("fs");
 var path = require("path");
 var http = require("http");
-var urlToTest = "new.24hr.se";
+var urlToTest = "www.1001.io";
 
 module.exports = function(grunt) {
 

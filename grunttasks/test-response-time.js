@@ -7,11 +7,11 @@ module.exports = function(grunt) {
 
     grunt.registerTask('test-response-time', 'Test how much it takes to render the page', function() {
 
-        var config = require("../node/config-manager");
+        var config = require("../frontend/config-manager");
 
         var done = this.async();
 
-        var front = require('../node/index');
+        var front = require('../frontend/index');
 
         var url = config.publicUrl;
 

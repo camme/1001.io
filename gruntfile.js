@@ -47,8 +47,8 @@ module.exports = function(grunt) {
                     paths: {
                     },
                     modules: [
-                        //{ name: "bootstrap-main" },
-                        //{ name: "bootstrap-subpage" },
+                        { name: "bootstrap-main" },
+                        { name: "bootstrap-post" }
                         //{ name: "bootstrap-list" }
                     ],
                     smartcss: {
@@ -147,7 +147,8 @@ module.exports = function(grunt) {
         }
 
         var targetTasks = ['setconfig'];
-        var tasks = ['rootprojectinstall', 'nodefrontinstall', 'stylus', 'exec:stamp', 'requirejs', 'test-first-package', 'test-response-time'];
+        //var tasks = ['rootprojectinstall', 'nodefrontinstall', 'stylus', 'exec:stamp', 'requirejs', 'test-first-package', 'test-response-time'];
+        var tasks = ['rootprojectinstall', 'nodefrontinstall', 'stylus', 'exec:stamp', 'requirejs']; //, 'test-first-package', 'test-response-time'];
         targetTasks = targetTasks.map(function(task) {
             return task + ":" + target;
         });

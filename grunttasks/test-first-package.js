@@ -7,11 +7,11 @@ module.exports = function(grunt) {
 
     grunt.registerTask('test-first-package', 'Test the first package and ensure its under 1400 bytes', function() {
 
-        var config = require("../node/config-manager");
+        var config = require("../frontend/config-manager");
 
         var done = this.async();
 
-        var front = require('../node/index');
+        var front = require('../frontend/index');
 
         var url = config.publicUrl;
 
