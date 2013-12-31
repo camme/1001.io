@@ -1,6 +1,6 @@
-    <nav class="slide-left init-hide">
 
-        <a href="/" title="home" class="logo">
+    <div id="top" class="content slide-left init-hide">
+         <a href="/" title="home" class="logo">
             <svg width="187px" height="70px" viewBox="0 0 288 108" enable-background="new 0 0 288 108" xml:space="preserve">
                 <rect fill="#aaa" width="36" height="108"/>
                 <path fill="#ccc" d="M36,0v108h108V0H36z M108,72H72V36h36V72z"/>
@@ -8,8 +8,11 @@
                 <rect x="252" fill="#ccc" width="36" height="108"/>
             </svg>
         </a>
-        <div class="tagline">Javascript, nodejs and everything in between.</div>
+        <a class="burger icon-menu" id="nav-toggle"></a>
+    </div>
 
+    <nav class="slide-left init-hide">
+        <div class="tagline">Javascript, nodejs and everything in between.</div>
         <ul>
            {{~ it.menu :item }}
             <li {{?item.children}}class="has-children"{{?}}>
@@ -30,12 +33,12 @@
          </ul>
     </nav>
 
-
-    <div class="container init-hide">
-
+    <div class="container content init-hide slide-left">
         {{=it.body}}
+    </div>
 
-        <footer class="other-info" id="about">
+    <footer class="other-info slide-left init-hide" id="about">
+        <div class="footer-container">
             <div class="about-title">About</div>
             <div class="about-image"><div class="aspect-ration"></div></div>
             <div class="about">
@@ -49,17 +52,16 @@
                     </p>
                 </div>
                 <div class="social">
-                    <a href="https://github.com/camme" class="icon-github"></a>
-                    <a href="mailto:camilo.tapia@gmail.com" class="icon-mail"></a>
+                    <a href="https://github.com/camme" class="icon-github-circled"></a>
+                    <a href="mailto:camilo.tapia@gmail.com" class="icon-email"></a>
                     <a href="http://twitter.com/camilotapia" class="icon-twitter"></a>
                     <a href="https://plus.google.com/116088809099838308089" class="icon-gplus"></a>
                     <a href="http://se.linkedin.com/in/camilotapia" class="icon-linkedin"></a>
                 </div>
             </div>
             <div class="version">version: {{=this.version()}}</div>
-        </footer>
-
-    </div>
+        </div>
+    </footer>
 
 
 </body>

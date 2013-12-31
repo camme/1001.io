@@ -2,13 +2,14 @@ define([
     'fontlist', 
     'csslist',
     "measurement",
-    "navigation-scroll"
-],function(ignore, igonre, measurement, navigationScroll) {
+    "navigation-scroll",
+    "trunk"
+],function(ignore, igonre, measurement, navigationScroll, trunk) {
 
     require(['smartcss!../styles/loaded.css'], function() {
 
         // init trunk menu
-        //trunk.init();
+        trunk.init();
         measurement.loaded();
 
         // adds a class to the body when we scroll fast

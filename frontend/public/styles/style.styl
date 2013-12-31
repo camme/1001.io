@@ -28,18 +28,51 @@ a
         text-decoration underline
 
 .container
-    -webkit-animation appear .5s
-    padding-top 1px
+    padding-top 80px
+    position relative
 
-nav
+#top
     position fixed
     z-index 100
     box-shadow: 0 0px 40px rgba(0,0,0,.4);
     background-color rgba(250, 250, 250, .8)
-    width 100%:
+    width 100%
+    height 80px
     margin 0 auto
     background-color #eee
     box-sizing border-box
+    .burger
+        float right
+        font-size 2em
+        color #aaa
+        text-decoration none
+        padding 20px 10px
+    .logo
+        float left
+        position absolute
+        top 6px
+        left 20px
+        svg
+            width 100px
+            float left
+
+
+nav
+    position fixed
+    z-index 0
+    background-color #666
+    box-shadow 0 0px 40px rgba(0,0,0,.4)
+    width 100%
+    margin 0 auto
+    box-sizing border-box
+
+    .tagline
+        color white
+        padding 1em
+        float right
+        padding-left 1em
+        width 74%
+        text-align center
 
     .about-link
         display none
@@ -51,26 +84,28 @@ nav
     ul
         width 100%
         box-sizing border-box
-        display flex
         padding 0
         margin 0
         list-style none
-        justify-content flex-end
-        padding-right 10px
 
         li
-            padding 0 .4em
-            line-height 80px
+            padding 0
+            border-bottom 2px solid #777
+
+            &:first-child
+                border-top 2px solid #777
+
+            &:last-child 
+                display none
 
         li.active a
             font-weight 700
         a
             display block
-            font-size 1em
-            float left
+            font-size 1.5em
             font-weight 700
-            color actionColor
             text-transform lowercase
+            color #eee
 
         .count
             background-color lighten(actionColor, 70%)
@@ -87,57 +122,41 @@ nav
             display block
             float left
 
-    .logo
-        float left
-        position absolute
-        top 6px
-        left 15px
-        svg
-            width 100px
-            float left
-
-    .tagline
-        display none
-        /*
-        position absolute
-        bottom 18px
-        color #bbb
-        font-size .8em
-        width 100%
-        margin-right 24px
-        text-align center
-        box-sizing border-box
-        padding 0
-        */
-
-
+    
 footer
-    display none
-    border-left 50px solid darken(backgroundColor, 10%)
-    border-right 50px solid darken(backgroundColor, 15%)
-    border-top 50px solid darken(backgroundColor, 20%)
-    border-bottom 50px solid darken(backgroundColor, 5%)
-    background-color darken(backgroundColor, 2%)
     float left
     font-size 1.5em
+    line-height 1.2em
+    color #999
     mainFont()
     font-weight 100
-    padding 4%
-    position relative
+    padding 4% 10% 4% 25%
     box-sizing border-box
+    position fixed
+    z-index 0
+    box-sizing border-box
+    bottom 0
+    width 100%
+
+    .footer-container
+        max-width 900px
+        margin 0 auto
 
     .about-title
         font-weight 700
         width 100%
-        text-align center
-        font-size 2em
-        margin 0px 0 .5em
+        text-align left
+        font-size 1em
+        color #bbb
+        margin 0
 
+    .about-image
+        display none
 
     .about
         float left
-        width 70%
-        margin-left 5%
+        width 100%
+        padding-bottom 12%
         position relative
 
         h1
@@ -149,8 +168,9 @@ footer
         .about-text
             float left
             font-weight 200
-            font-size .8em
-            color #999
+            font-size .7em
+            line-height 1.5em
+            color #eee
             //margin-bottom 5%
 
     .version
@@ -176,7 +196,6 @@ footer
         float left
         margin-top 2%
         a
-            padding-left 1px
             transition all ease-out .3s
             border-radius 20px
             text-shadow 0px 0px 8px #666
@@ -210,11 +229,6 @@ pre code
 
 .main-list
 .single
-    margin 0
-    border-left 50px solid darken(backgroundColor, 10%)
-    border-right 50px solid darken(backgroundColor, 15%)
-    border-top 50px solid darken(backgroundColor, 20%)
-    border-bottom 50px solid darken(backgroundColor, 5%)
     background-color darken(backgroundColor, 2%)
     margin 0 auto
     padding 5%
@@ -223,7 +237,8 @@ pre code
 
     h1
         line-height 1.2em
-        font-size 2.5em
+        font-size 1em
+        padding 0 1em
         margin-top 0
         margin-bottom 0.3em
         clear left
@@ -250,7 +265,7 @@ pre code
         clear left
         //border-bottom 2px dashed actionColor
     .article-holder
-        margin-bottom 5%
+        margin-bottom 8%
         position relative
         background-color white
         box-shadow 8px 8px 0 darken(backgroundColor, 7%)
@@ -283,7 +298,7 @@ pre code
             background-size cover
             position relative
             position 1
-            background-color #eee
+            background-color #ddd
             background-repeat no-repeat
             .aspect-ration
                 margin-bottom 50%
@@ -314,13 +329,12 @@ pre code
         flex-flow row wrap
         justify-content space-between
         .article-holder
-            width 47%
+            width 100%
             .intro
                 font-size .85em
 
 
         &.archive .article-holder
-            width 30%
             font-size .9em
             .date
                 font-size .6em
@@ -337,7 +351,13 @@ pre code
             background-color rgba(100, 100, 100, .2)
             color actionColor
             text-decoration none
-
+    .archive.projects
+        .date
+            display none
+        .container-content
+            padding-top 1.5em
+        .tag-circle-border
+            display none
     .project-list
         box-shadow 0px -8px 0px #ddd
         border-top solid 8px darken(backgroundColor, 5%)
@@ -354,6 +374,7 @@ pre code
             text-transform lowercase
         .project
             padding 0
+            width 100%
             box-sizing border-box
             h2
                 padding 7% 10% 0
@@ -373,6 +394,7 @@ pre code
 
 .single
     font-size 1.2em
+    line-height 1.5em
     article
         max-width 900px
         margin 0 auto
@@ -401,42 +423,116 @@ pre code
         ul
             clear left
 
-@media only screen and (min-width: 900px) 
-    footer
-        display block
-    .container
-        padding-top 120px
-    nav
-        padding-bottom 0
-        ul
-            justify-content center
-            padding 0
-            padding-left 150px
-            li
-                padding 0 2em
-                line-height 120px
-
-            a
-                font-size 1.5em
-
+@media only screen and (min-width: 700px) 
+    #top
+        z-index 1000
+        background-color transparent
+        box-shadow none
+        height 120px
+        width 30%
+        .burger
+            display none
         .logo
             top 24px
             left 24px
             svg 
                 width auto
 
+    footer
+        position relative
+        border-left 50px solid darken(backgroundColor, 10%)
+        border-right 50px solid darken(backgroundColor, 15%)
+        border-top 50px solid darken(backgroundColor, 20%)
+        border-bottom 50px solid darken(backgroundColor, 5%)
+        background-color darken(backgroundColor, 2%)
+        padding 4%
+        .about-title
+            font-weight 700
+            width 100%
+            text-align center
+            font-size 2em
+            margin 0px 0 .5em
+        .about-image
+            display block
+
+        .about
+            margin-left 5%
+            padding-bottom 0
+            width 70%
+
+            .about-text
+                font-size .8em
+                padding-bottom 5%
+                color #666
+
+    .container
+        padding-top 120px
+    nav
+        z-index 100
+        background-color rgba(250, 250, 250, .8)
+        padding-bottom 0
+        ul
+            padding-left 150px
+            padding-right 35px
+            display flex
+            justify-content flex-end
+            li
+                line-height 120px
+                border 0
+                &:first-child
+                    border 0
+                &:last-child 
+                    display block
+            a
+                color actionColor
+                float left
+                padding 0 .5em
+
          .tagline
             display block
             float left
+            text-align left
             position absolute
             top 24px
             left 214px
             padding 1em
             font-size 1em
-            color #bbb
+            color #aaa
             width 200px
 
+    .main-list
+        .blog-list
+            .post
+                width 100%
+            &.archive .article-holder
+                width 47%
+         .project-list
+            .project
+                width 47%
 
+    .main-list, .single
+        border-left 50px solid darken(backgroundColor, 10%)
+        border-right 50px solid darken(backgroundColor, 15%)
+        border-top 50px solid darken(backgroundColor, 20%)
+        border-bottom 50px solid darken(backgroundColor, 5%)
+
+        h1
+            font-size 2.5em
+
+ 
+@media only screen and (min-width: 900px) 
+    .main-list
+        .blog-list
+            .post
+                width 47%
+            &.archive .article-holder
+                width 30%
+         .project-list
+            .project
+                width 30%
+
+
+/*
 @media only screen and (max-width: 1000px) 
     .container
         flex-direction column
@@ -476,60 +572,8 @@ pre code
             flex-basis 100%
             padding-right 0
 
-    .other-info
-        width 100%
-        z-index 1000
-        background-color backgroundColor
-        //position fixed
-        display flex
-        padding 0
-        &.about-on
-            .about
-                display block
-        .about
-            display none
-            transition height .5s ease-out;
-            padding-top 0
-            position absolute
-            top 90px
-            left 0
-            width 94%
-            margin 3%
-            border-radius 10px
-            border 4px solid darken(backgroundColor, 7)
-            padding 10%
-            box-sizing border-box
-            background-color white
-            z-index 100
-        .nav
-            background-color transparent
-            width auto
-            padding 10px 0px 10px 10px
-            top 0
-            right 20px
-            position fixed
-            z-index 1000
-            box-shadow none
-            border 0
-            .nav-title
-                display none
-            .extra-nav
-                li
-                    display block
-                    float right
-                    margin-top 30px
-                    line-height .1em
-             ul
-                li
-                    display none
-                    float left
-                    a
-                        font-size .8em
 
-                       
-
-
-
+*/
 @-webkit-keyframes appear
     from 
         opacity: 0.0001

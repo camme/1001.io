@@ -33,13 +33,9 @@ function init(options, next) {
         proxyUrl: config.wp.url,
         firstPackage: "first1400",
         filter: function(content) {
-            var re = new RegExp(config.wp.url, "g");
+            //var re = new RegExp(config.wp.url, "g");
             var re = /:81/g;
-
-            console.log(re);
-            console.log(content);
             content = content.replace(re, "");
-            console.log("result", content);
             return content;
         }
     }));
