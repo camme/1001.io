@@ -68,27 +68,26 @@ module.exports = function(grunt) {
                 },
                 files: stylusFileList
             }
-        },
-
-        exec: {
-            stamp: {
-                cmd: function () {
-                    var versionCommand = "git show -s --format=%h";
-                    exec(versionCommand, function (err, stdout, stderr) {
-                        var versionHash = stdout.toString().replace(/[\n\r]/g, '');
-                        var countCommand = "git rev-list HEAD --count";
-                        exec(countCommand, function (err, stdout, stderr) {
-                            var count = stdout.toString().replace(/[\n\r]/g, '');
-                            var version = count + "-" + versionHash;
-                            fs.writeFileSync("frontend/version.txt", version, "utf8");
-                            fs.writeFileSync("wordpress/version.txt", version, "utf8");
-                            //grunt.log.ok("Version", version);
-                        });
-                    });
-                    return "";
-                }
-            }
         }
+
+    });
+
+    grunt.registerTask('version', 'create version file', function() {
+        var done = this.async();
+        var versionCommand = "git show -s --format=%h";
+        exec(versionCommand, function (err, stdout, stderr) {
+            var versionHash = stdout.toString().replace(/[\n\r]/g, '');
+            var countCommand = "git rev-list HEAD --count";
+            exec(countCommand, function (err, stdout, stderr) {
+                var count = stdout.toString().replace(/[\n\r]/g, '');
+                var version = count + "-" + versionHash;
+                fs.writeFileSync("frontend/version.txt", version, "utf8");
+                fs.writeFileSync("wordpress/version.txt", version, "utf8");
+                grunt.log.ok("Version", version);
+                done();
+            });
+        });
+        return "";
 
     });
 
@@ -127,7 +126,6 @@ module.exports = function(grunt) {
 
 
     grunt.loadTasks("grunttasks");
-    grunt.loadNpmTasks("grunt-exec");
     grunt.loadNpmTasks('grunt-requirejs');
     grunt.loadNpmTasks('grunt-contrib-stylus');
 
@@ -148,7 +146,7 @@ module.exports = function(grunt) {
 
         var targetTasks = ['setconfig'];
         //var tasks = ['rootprojectinstall', 'nodefrontinstall', 'stylus', 'exec:stamp', 'requirejs', 'test-first-package', 'test-response-time'];
-        var tasks = ['rootprojectinstall', 'nodefrontinstall', 'stylus', 'exec:stamp', 'requirejs']; //, 'test-first-package', 'test-response-time'];
+        var tasks = ['rootprojectinstall', 'nodefrontinstall', 'stylus', 'version', 'requirejs']; //, 'test-first-package', 'test-response-time'];
         targetTasks = targetTasks.map(function(task) {
             return task + ":" + target;
         });

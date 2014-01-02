@@ -13,7 +13,7 @@
             $data->post->permalink = get_permalink($post->ID);
             $data->post->content = get_field('content');
             $data->post->images = get_field('images');
-            $data->post->tags = wp_get_post_tags();
+            $data->post->tags = wp_get_post_tags($post->ID);
             $data->post_title = $post->post_title;
             break;
         }

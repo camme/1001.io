@@ -8,6 +8,7 @@
     $data->template = 'blog';
     $data->posts = array();
     $data->post_title = "Blog";
+    $data->type = "post";
 
     $blog_query = new WP_Query($args = array( 'post_type'=> 'post','order'    => 'DESC'));
 
