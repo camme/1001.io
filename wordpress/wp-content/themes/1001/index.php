@@ -3,6 +3,7 @@
     $data = new stdclass();
     $data->post_title = "Start";
     $data->template = 'index';
+    $data->type = 'index';
     $data->posts = array();
 
     if (have_posts()) {
@@ -37,6 +38,7 @@
             $project = new stdclass();
             $project->post_title = $post->post_title;
             $project->excerpt = get_field('excerpt');
+            $project->links = get_field('links');
             $project->permalink = get_permalink($post->ID);
             $project->date = $post->post_date;
             //$project->content = get_field('content');

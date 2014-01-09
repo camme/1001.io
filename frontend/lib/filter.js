@@ -1,3 +1,5 @@
+var registry = require('npm-stats');
+
 exports.filter = function(content) {
     var re = /:81/g;
     content = content.replace(re, "");
@@ -32,7 +34,12 @@ function startPage(data, next) {
         for(var j = 0, jj = project.links.length; j < jj; j++){
             var link = project.links[j];
             if (link.link_type == "npm" && link.link.indexOf("/") > -1) {
-                project.npm = link.link.substring(link.link.lastIndexOf("/")).replace(/\//g, "");
+                project.npm = {
+                    name: link.link.substring(link.link.lastIndexOf("/")).replace(/\//g, "")
+                };
+                //var downloads = registry.module(project.npm.name).downloads(function() {
+                    //console.log(arguments);                                                           
+                //});
             }
         }
     }
