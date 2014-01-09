@@ -9,11 +9,12 @@
   "author": "Camilo Tapia <camilo.tapia@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "frnt": "0.0.3",
+    "frnt": "0.3.6",
     "express-dot": "~0.1.0",
     "marked": "~0.3.0",
     "highlight.js": "~7.5.0",
     "moment": "~2.5.0",
-    "express": "~3.4.7"
+    "express": "~3.4.7",
+    "lru-cache": "~2.5.0"
   }
 }
