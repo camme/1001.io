@@ -8,8 +8,10 @@ var app = express();
 var config = require("../config-manager");
 var server = require('http').createServer(app);
 
+var filter = require('./filter');
 
 var doT = require('express-dot');
+
 
 // add globals
 var dotFunctions = require('./dot-functions');
@@ -32,13 +34,9 @@ function init(options, next) {
     app.use(frnt.init({
         proxyUrl: config.wp.url,
         firstPackage: "first1400",
-        filter: function(content) {
-            //var re = new RegExp(config.wp.url, "g");
-            var re = /:81/g;
-            content = content.replace(re, "");
-            return content;
-        }
-    }));
+        filter: filter.filter,
+        process: filter.process
+   }));
 
     // define rendering engine
     app.set('views', path.join(__dirname, "../views"));
