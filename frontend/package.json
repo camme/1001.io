@@ -9,7 +9,7 @@
   "author": "Camilo Tapia <camilo.tapia@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "frnt": "0.3.7",
+    "frnt": "0.3.8",
     "express-dot": "~0.1.0",
     "marked": "~0.3.0",
     "highlight.js": "~7.5.0",
