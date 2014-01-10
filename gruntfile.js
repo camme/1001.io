@@ -58,17 +58,53 @@ module.exports = function(grunt) {
                     }
                 }
             }
-        },
+        }
 
+        /*
         stylus: {
             compile: {
                 options: {
                     'include css': true,
-                    'inline': true
+                    'inline': true,
+                    'compress': false,
+                    use: [ 
+                        require('autoprefixer-stylus')()
+                    ]
                 },
                 files: stylusFileList
             }
+        }*/
+
+    });
+
+    grunt.registerTask('stylus', 'make the css', function() {
+
+        var done = this.async();
+        var stylus = require('stylus');
+        var autoprefixer = require('autoprefixer-stylus');
+        var stylusPaths = grunt.file.expand([ 'frontend/public/**/*.styl' ]);
+
+        function process(list) {
+            var stylFile = list.shift();
+            if (stylFile) {
+                var css = fs.readFileSync(stylFile).toString();
+                stylus(css)
+                    .set('filename', stylFile)
+                    .set('include css', true)
+                    .set('compress', false)
+                    .use(autoprefixer())
+                    .render(function(err, output){
+                        var cssFile = stylFile.replace(".styl", ".css");
+                        fs.writeFileSync(cssFile, output, 'utf8');
+                        grunt.log.ok("Created '" + cssFile + "'");
+                        process(list);
+                    });
+            } else {
+                done();
+            }
         }
+
+        process(stylusPaths);
 
     });
 
@@ -127,7 +163,7 @@ module.exports = function(grunt) {
 
     grunt.loadTasks("grunttasks");
     grunt.loadNpmTasks('grunt-requirejs');
-    grunt.loadNpmTasks('grunt-contrib-stylus');
+    //grunt.loadNpmTasks('grunt-contrib-stylus');
 
     grunt.registerTask('build', function(inputTarget) {
         var inputTarget = inputTarget || 'development';
