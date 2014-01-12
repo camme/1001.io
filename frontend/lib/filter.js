@@ -4,6 +4,8 @@ exports.filter = function(content) {
     //var re = /http:\\\/\\\/local.1001.io(.*?)\\\//gm;
     var re = /http:\\\/\\\/local.1001.io:81\\\//g;
     content = content.replace(re, "/");
+    var re = /http:\\\/\\\/www.1001.io:81\\\//g;
+    content = content.replace(re, "/");
     return content;
 }
 
