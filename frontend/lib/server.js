@@ -56,22 +56,39 @@ function init(options, next) {
             console.log("Crawling through site to cache responses");
             console.log("----------------------------------------");
 
-            var crawler = new Crawler(config.publicUrl, "/", config.server.port);
+            var crawlerUrl = config.publicUrl.replace("http://", "");
+            var crawler = new Crawler(crawlerUrl, "/"); //, config.server.port);
             console.log(config.publicUrl, "/", config.server.port);
 
-            crawler.on("fetchcomplete",function(queueItem){
-                console.log("Crawling> Completed caching resource:", queueItem);
+            crawler.on("crawlstart", function() {
+                console.log("Crawling> Start");
+            }).on("complete", function() {
+                console.log("Crawling> Completed!");
+                console.log("");
+            }).on("queueadd", function(item) {
+                console.log("Added", item.url);
+            });
+ 
+            /*
+            crawler.on("crawlstart", function() {
+                console.log("START");
+            }).on("fetchstart", function(item, options) {
+                console.log("Fetch start", item);
             }).on("complete", function() {
                 console.log("Crawling> Completed!");
                 console.log("");
             }).on("queueadd", function(item) {
                 console.log("Added", item);
+            }).on("fetchdataerror", function(item) {
+                console.log("Data Error", item);
             }).on("fetcherror", function(item) {
                 console.log("Error", item);
             }).on("fetchcomplete",function(queueItem, responseBuffer, response) {
                 console.log("I just received %s (%d bytes)",queueItem.url,responseBuffer.length);
                 console.log("It was a resource of type %s",response.headers['content-type']);
+                console.log(responseBuffer.toString());
             });
+            */
 
             crawler.start();
 
