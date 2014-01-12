@@ -36,7 +36,7 @@ function init(options, next) {
         firstPackage: "first1400",
         filter: filter.filter,
         process: filter.process
-   }));
+    }));
 
     // define rendering engine
     app.set('views', path.join(__dirname, "../views"));
