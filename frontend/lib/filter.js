@@ -1,7 +1,8 @@
 var registry = require('npm-stats');
 
 exports.filter = function(content) {
-    var re = /http:\\\/\\\/local.1001.io(.*?)\\\//gm;
+    //var re = /http:\\\/\\\/local.1001.io(.*?)\\\//gm;
+    var re = /http:\\\/\\\/local.1001.io:\d+\\\//gm;
     content = content.replace(re, "/");
     return content;
 }
