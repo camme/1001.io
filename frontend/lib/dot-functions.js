@@ -7,7 +7,8 @@ var hljs = require("highlight.js");
 
 marked.setOptions({
     highlight: function (code, lang) {
-        return hljs.highlightAuto(code).value;
+        lang = lang || "javascript";
+        return hljs.highlight(lang, code).value;
     }
 });
 
