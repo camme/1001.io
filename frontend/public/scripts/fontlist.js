@@ -1,6 +1,15 @@
 
+// Dont know why I have to add this to make it load quicker
+WebFontConfig = {
+  custom: {
+    families: ['ozzo'],
+    urls: ['/media/fonts/ozzo.css']
+  }
+};
+
 define([
-    "font!custom,families:[ozzo],urls:[/media/fonts/ozzo.css],google,families:[Raleway:400]"
+    "font!google,families:[Raleway:400]"
+    //"font!custom,families:[ozzo],urls:[/media/fonts/ozzo.css]"
 ], function() {
     return {};
 });
