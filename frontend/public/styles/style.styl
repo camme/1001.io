@@ -435,12 +435,24 @@ footer
             clear left
 
 @media only screen and (min-width: 700px) 
+    nav
+        transition all .4s ease-out
+        top 0
+    body.slow-scroll
+        nav
+            top -120px
+        #top
+            top -120px
     #top
+        transition all .4s ease-out
         z-index 1000
+        top 0
         background-color transparent
         box-shadow none
         height 120px
         width 30%
+        a
+            top 0
         .burger
             display none
         .logo

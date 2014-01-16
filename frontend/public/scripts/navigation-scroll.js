@@ -4,7 +4,7 @@ define(function() {
     var slowTime = null;
     var pastY = 0;
     var speedLimit = 1;
-    var waitForSlow = 2000;
+    var waitForSlow = 500;
 
     var slowClassToAdd = "slow-scroll";
     var fastClassToAdd = "fast-scroll";
@@ -30,7 +30,7 @@ define(function() {
             currentClasses = "";
         }
 
-        if (Math.abs(speed) > speedLimit && slow || presentY < 50) {
+        if (speed < 0 && slow || presentY < 50) {
             if (currentClasses.indexOf(fastClassToAdd) == -1) {
                 currentClasses = currentClasses.replace(slowClassToAdd, "").replace(/\s\s/g, "");
                 currentClasses = currentClasses.replace(/(^\s+|\s+$)/, "");
@@ -39,7 +39,7 @@ define(function() {
             slow = false;
             slowTime = null;
         }
-        else if (Math.abs(speed) <= speedLimit && !slow) {
+        else if (speed >= 0 && !slow) {
             if (!slowTime) {
                 slowTime = new Date();
             }
