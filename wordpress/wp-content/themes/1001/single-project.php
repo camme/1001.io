@@ -16,6 +16,18 @@
             $data->post->images = get_field('images');
             $data->post->tags = wp_get_post_tags($post->ID);
             $data->post_title = $post->post_title;
+            $data->post->links = array();
+
+            if( get_field('links') ) {
+                while( has_sub_field('links') ) { 
+                    $variable = 
+                    array_push($data->post->links, array(
+                        'link' => get_sub_field('link'),
+                        'type' => get_sub_field('link_type'),
+                        'text' => get_sub_field('link_text')
+                    ));
+                }
+            }
             break;
         }
         

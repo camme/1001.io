@@ -24,6 +24,11 @@
     "phantom": "~0.5.4",
     "simplecrawler": "~0.3.6",
     "autoprefixer-stylus": "0.0.3",
-    "stylus": "~0.42.0"
+    "stylus": "~0.42.0",
+    "async": "^0.2.10",
+    "request": "^2.34.0",
+    "github": "^0.1.14",
+    "npm-stats": "^0.3.0",
+    "moment": "^2.5.1"
   }
 }

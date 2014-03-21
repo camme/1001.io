@@ -8,7 +8,7 @@ WebFontConfig = {
 };
 
 define([
-    "font!google,families:[Raleway:400]"
+    "font!google,families:[Raleway:400,Raleway:700]"
     //"font!custom,families:[ozzo],urls:[/media/fonts/ozzo.css]"
 ], function() {
     return {};

@@ -1,0 +1,104 @@
+@import 'mixins.styl'
+
+backgroundColor = #fefefe
+actionColor = #5b97b6
+topColor = #aaa
+
+@media only screen and (min-width: 900px) 
+    .main-list
+        .blog-list
+            .post
+                width 47%
+            &.archive .article-holder
+                width 30%
+         .project-list
+            .project
+                width 30%
+
+    .single article
+        .post-content-box
+            display flex
+            
+            .project-info
+                flex 2
+                order 2
+                margin-left 3em
+                margin-top 1em
+                padding 0
+
+            .post-content
+                flex 5
+
+        .project-info-box
+            float none
+            background-color white
+            box-shadow 6px 6px 0 rgba(0,0,0,.1)
+            border-radius 2px
+            width 100%
+            padding 2rem 1rem
+            margin-bottom 2rem
+            box-sizing border-box
+            display flex
+            flex-direction column
+            align-items center
+
+            .link-content
+                line-height 1rem
+                width 80%
+
+            .link-title
+                font-size .7rem
+                font-weight 700
+                float none
+                clear both
+                padding-left 0
+
+            .link-link
+                font-size 1.0rem
+                line-height 1rem
+                a
+                    display block
+                    
+            .link-stats
+                padding-left 0
+
+            .link-section
+                padding-top .8em
+                font-size 1.0rem
+                line-height 1.3rem
+                p
+                    padding 0
+                    margin 0
+                span
+                    font-weight 700
+                div
+                    float none
+                    padding-right 0
+
+
+            iconSize = 6rem
+            .link-icon
+                display block
+                width iconSize
+                height iconSize
+                background-color actionColor
+                border-radius 100rem
+                margin-bottom .5rem
+                text-align center
+                transition all .4s
+                float none
+                clear both
+                &:hover
+                    text-decoration none
+                    background-color darken(actionColor, 40%)
+                &:before
+                    font-family 'ozzo'
+                    font-size iconSize - 2rem
+                    color white
+                    line-height iconSize
+            &.link-type-github .link-icon:before
+                content '\e803'
+            &.link-type-npm .link-icon:before
+                content '\e809'
+
+

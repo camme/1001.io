@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'ozzo';
-  src: url('ozzo.eot?35493381');
-  src: url('ozzo.eot?35493381#iefix') format('embedded-opentype'),
-       url('ozzo.woff?35493381') format('woff'),
-       url('ozzo.ttf?35493381') format('truetype'),
-       url('ozzo.svg?35493381#ozzo') format('svg');
+  src: url('ozzo.eot?64621678');
+  src: url('ozzo.eot?64621678#iefix') format('embedded-opentype'),
+       url('ozzo.woff?64621678') format('woff'),
+       url('ozzo.ttf?64621678') format('truetype'),
+       url('ozzo.svg?64621678#ozzo') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -14,7 +14,7 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: 'ozzo';
-    src: url('../font/ozzo.svg?35493381#ozzo') format('svg');
+    src: url('../font/ozzo.svg?64621678#ozzo') format('svg');
   }
 }
 */
@@ -50,6 +50,7 @@
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
 }
  
+.icon-npm:before { content: '\e809'; } /* '' */
 .icon-th:before { content: '\e801'; } /* '' */
 .icon-doc-text-inv:before { content: '\e802'; } /* '' */
 .icon-menu:before { content: '\e800'; } /* '' */

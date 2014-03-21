@@ -2,13 +2,57 @@
 <div class="single">
 
     <article class="article-holder">
-       <h1>{{= it.post.post_title}}</h1>
-        <div class="images">
-            {{~it.post.images: image}}
-                {{=this.image(image.image)}}
-            {{~}}
+
+        <h1>{{= it.post.post_title}}</h1>
+
+        <div class="post-content-box">
+            {{? it.type === "project" }}
+                <div class="project-info">
+                {{~it.post.links: link }}
+                    <div class="project-info-box link-type-{{=link.type}}">
+                        {{? link.type == "github" }}
+                            <a href="https://github.com/{{=link.link}}" class="link-icon"></a>
+                            <div class="link-content">
+                                <div class="link-section">
+                                    <div class="link-title">github</div> 
+                                    <div class="link-link"><a href="https://github.com/{{=link.link}}">{{=link.link}}</a></div>
+                                </div>
+                                <div class="link-section link-stats"> 
+                                    <div><span>{{=link.subscribers}}</span> subscribers </div>
+                                    <div><span>{{=link.watchers}}</span> watchers </div>
+                                    <div><span>{{=link.forks}}</span> forks </div>
+                                 </div>
+                            </div>
+                        {{?}}
+                        {{? link.type == "npm" }}
+                            <a href="https://www.npmjs.org/package/{{=link.link}}" class="link-icon"></a>
+                            <div class="link-content">
+                                <div class="link-section">
+                                    <div class="link-title">npm</div> 
+                                    <div class="link-link"><a href="https://www.npmjs.org/package/{{=link.link}}">{{=link.link}}</a></div>
+                                </div>
+                                <div class="link-section link-stats"> 
+                                    <div>
+                                        downloaded <span>{{=link.inAWeek}}</span> times last 7&nbsp;days, 
+                                        <span>{{=link.inAMonth}}</span> in a month and 
+                                        <span>{{=link.total}}</span> from start.
+                                    </div>
+                                 </div>
+                            </div>
+                        {{?}}
+                    </div>
+                {{~}}
+            </div>
+            {{?}}
+            <div class="post-content">
+                <div class="images">
+                    {{~it.post.images: image}}
+                        {{=this.image(image.image)}}
+                    {{~}}
+                </div>
+                <div>{{=this.markdown(it.post.content)}}</div>
+            </div>
         </div>
-        <div>{{=this.markdown(it.post.content)}}</div>
 
         <div class="discussion">
             <div id="disqus_thread"></div>

@@ -50,7 +50,7 @@ function init(options, next) {
             next();
         }
 
-        if (options.crawl !== false) { //&& config.useHtmlCache && config.useWpCache) {
+        if (config.crawl !== false) { //&& config.useHtmlCache && config.useWpCache) {
 
             console.log("");
             console.log("Crawling through site to cache responses");
