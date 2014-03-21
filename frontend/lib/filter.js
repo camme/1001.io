@@ -69,6 +69,7 @@ function aggregateProjectInfo(data, done) {
                 link.total = 0;
                 var aWeekAgo = moment().subtract('days', 8);
                 var aMonthAgo = moment().subtract('days', 31);
+		if (stats.downloads) {
                 stats.downloads.forEach(function(date) {
                     var downloadDate = moment(date.day);
                     if (aWeekAgo.isBefore(date.day)) {
@@ -79,6 +80,7 @@ function aggregateProjectInfo(data, done) {
                     }
                     link.total += date.downloads;
                 });
+		}
                next();
             });
         } else {
