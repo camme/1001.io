@@ -12,6 +12,51 @@ marked.setOptions({
     }
 });
 
+function importContent(content) {
+
+    // Import directly
+    var re = /@import\((.+?)\)/g;
+    var match = re.exec(content);
+
+    while(match) {
+
+        var importContent = "";
+        try {
+            var file = match[1];
+            if (file.indexOf(".html")) {
+                var fileContent = fs.readFileSync(path.join(__dirname, "../public", file), 'utf-8');
+                if (fileContent) {
+                    importContent = fileContent; 
+                }
+            }
+        } catch (err) {
+            console.log("error in dot-functions", err);
+        }
+
+        content = content.replace(match[0], importContent);
+        match = re.exec(content);
+    }
+
+    // Import with require
+    var reRequire = /@require\((.+?)\)/g;
+    var matchRequire = reRequire.exec(content);
+
+    while(matchRequire) {
+
+        var requireContent = "";
+        var file = matchRequire[1];
+        requireContent = '<script type="text/javascript">(function() { window.ozzo = window.ozzo || {}; window.ozzo.extraModules = window.ozzo.extraModules || []; window.ozzo.extraModules.push("' + file + '"); })();</script>';
+
+        content = content.replace(matchRequire[0], requireContent);
+        matchRequire = reRequire.exec(content);
+    }
+
+    return content;
+
+}
+
+
+
 module.exports = {
 
     load: function(file) {
@@ -22,6 +67,7 @@ module.exports = {
         var markdownContent = "";
         if (content) {
             markdownContent = marked(content);
+            markdownContent = importContent(markdownContent);
         }
         return markdownContent;
     },

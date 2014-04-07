@@ -4,6 +4,7 @@ requirejs.config({
         text: "lib/text",
         smartcss: "lib/requirejs-smartcss/smartcss",
         font: "lib/font",
-        propertyParser: "lib/propertyParser"
+        propertyParser: "lib/propertyParser",
+        nunt: "lib/nunt"
     }
 });
